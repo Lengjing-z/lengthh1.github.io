@@ -1,0 +1,82 @@
+.bg{
+    width: 1600px;
+    height: 680px;
+    margin: auto;
+    background: url("../image/form/login.jpg");
+    padding-top: 240px;
+}
+.formBox{
+    width: 400px;
+    height: 420px;
+    margin-left: 1000px;
+}
+h3{
+    margin-top: 20px;
+    margin-left: 40px;
+    line-height: 72px;
+}
+.formBox div{
+    margin-left: 40px;
+    line-height: 60px;
+    margin-top: 30px;
+}
+.formBox span{
+    margin-left: 40px;
+    font-size: 10px;
+}
+.inp{
+    width: 320px;
+    height: 44px;
+    border: #95b4df 2px solid;
+    border-radius: 5px;
+}
+.uname{
+    width: 270px;
+    padding-left: 50px;
+    background: url("../image/form/uname.jpg") no-repeat;
+
+}
+.pwd{
+    width: 270px;
+    padding-left: 50px;
+    background: url("../image/form/upwd.jpg") no-repeat;
+}
+.subm{
+    background: #00a0e9;
+    border: #e3e3e3 2px solid;
+    color: white;
+    font-size: 18px;
+}
+.formBox div:nth-of-type(1){
+    margin-top: 10px;
+}
+.check{
+    display: none;
+}
+.formBox div:nth-of-type(3){
+    margin-top: 5px;
+    height: 12px;
+    border: none;
+    line-height: 12px;
+    font-size: 14px;
+}
+.formBox div:nth-of-type(3) div{
+    margin: 0;
+    width: 12px;
+    height: 12px;
+    background: white;
+    float: left;
+    border: #95b4df 1px solid;
+    margin-right: 5px;
+}
+.formBox div:nth-of-type(3) div span{
+    margin: 2px 2px;
+    float: left;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+
+}
+.ck{
+    background: #00a0e9;
+}
