@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出三角形、四边形、菱形</title>
+</head>
+<body>
+
+</body>
+<script>
+    var line =  Number(prompt("请输入行数："));
+
+    // 输出三角形
+    for (let i = 1; i <= line; i++) {
+        let str = "";
+        for (let j = 1; j < line - i + 1; j++) {
+            str += "&nbsp";
+        }
+        for (let k = 1; k <= 2 * i - 1; k++) {
+            str += "*";
+        }
+        document.write(str);
+        document.write("<br>");
+    }
+    // 输出平行四边形
+    for (let i = 1; i <= line; i++) {
+        let str = "";
+        for (let j = 1; j < line - i + 1; j++) {
+            str += "&nbsp";
+        }
+        for(let k = 1; k <= line; k++){
+            str+="*"
+        }
+        document.write(str);
+        document.write("<br>");
+    }
+    // 输出菱形
+    var h = 11, w = 11;
+    h = line;
+    w = line;
+    for (let i = 0; i < (h + 1) / 2; i++) {
+        let str = "";
+        for (let j = 0; j < w / 2 - i; j++) {
+            str += "&nbsp";
+        }
+        for (let k = 1; k < (i + 1) * 2; k++) {
+            str += "*";
+        }
+        document.write(str);
+        document.write("<br>");
+    }
+    for (let i = 1; i <= h / 2; i++) {
+        let str = "";
+        for (let j = 1; j <= i + 1; j++) {
+            str += "&nbsp";
+        }
+        for (let k = 1; k <= w - i * 2; k++) {
+            str += "*";
+        }
+        document.write(str);
+        document.write("<br>");
+    }
+</script>
+</html>
