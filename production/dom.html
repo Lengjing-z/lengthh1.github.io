@@ -79,6 +79,10 @@
 <script>
     //179000513张念
     //菜单收缩与扩展
+    let menu = document.querySelectorAll("ul ul");
+    for(let m of menu){
+        m.style.display = "none"
+    }
     function show(title) {
         let menu = document.querySelectorAll("ul ul");
         for(let m of menu){
