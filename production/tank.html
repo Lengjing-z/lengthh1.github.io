@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style type="text/css">
+        input{font-size:26px;margin-top: 20px;}
+        body{background-image: url(../image/tank/grassland.png);}
+        #mytank{position: absolute;left:10px;top:100px}
+    </style>
+</head>
+<body>
+<input type="button" value="按钮一"/>
+<input type="button" value="按钮二" />
+<input type="button" value="按钮三" />
+<hr />
+<img id="mytank" src="../image/tank/right.png"/>
+<script type="text/javascript">
+    //179000513张念
+    var mytank = document.getElementById('mytank');
+    window.addEventListener(
+        'keydown',
+        function(e){
+            console.log(e.keyCode);
+            if(e.keyCode == 39){
+                mytank.setAttribute("src","../image/tank/right.png");
+                mytank.style.left = (mytank.offsetLeft+10)+'px';
+            }
+            if(e.keyCode == 37){
+                mytank.setAttribute("src","../image/tank/left.png");
+                if(mytank.offsetLeft >=15){
+                    mytank.style.left = (mytank.offsetLeft-10)+'px';
+                }
+            }
+            if(e.keyCode == 38){
+                mytank.setAttribute("src","../image/tank/up.png");
+                if(mytank.offsetTop >= 100){
+                    mytank.style.top = (mytank.offsetTop-10)+'px';
+                }
+            }
+            if(e.keyCode == 40){
+                mytank.setAttribute("src","../image/tank/down.png");
+                mytank.style.top = (mytank.offsetTop+10)+'px';
+            }
+        });
+    window.addEventListener("contextmenu", ()=>{
+        event.returnValue=false;
+    });
+    let inps = document.querySelectorAll("input");
+    inps[0].addEventListener("click", ()=>{
+        alert("javascript事件测试一");
+    });
+    inps[1].addEventListener("click", ()=>{
+        inps[1].setAttribute("value","按钮二测试")
+    });
+    inps[2].addEventListener("mousemove", ()=>{
+        inps[2].style.backgroundColor = "blue";
+        inps[2].style.color = "white";
+    });
+    inps[2].addEventListener("click", ()=>{
+        alert("javascript事件测试三");
+    });
+</script>
+</body>
+</html>
