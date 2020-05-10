@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习7 BOM编程</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div id="cald">
+</div>
+<div id="clock">
+</div>
+</body>
+<script>
+    //179000513张念
+    $("#cald").css({
+        "width":"150px",
+        "height":"138px",
+        "background-image":"url('../image/time/cald.png')",
+        "text-align":"center"
+    });
+    let divxq = $("<div></div>");
+    divxq.css({
+        "color":"white",
+        "font-size":"24px"
+    });
+    let divday = $("<div></div>");
+    divday.css({
+        "font-size":"78px",
+        "font-weight":"bold"
+    });
+    $("#cald").append(divxq,divday);
+    $("#clock").css({
+        "width":"220px",
+        "height":"146px",
+        "background-image":"url('../image/time/clock.png')",
+        "font-size":"48px",
+        "color":"white",
+        "font-weight":"bold",
+        "text-align":"center",
+        "line-height":"126px",
+        "padding-left":"20px"
+    });
+    function tm(){
+        let d = new Date();
+        let day = d.getDate();
+        let xq = d.getDay();
+        let xqarr = ["日","一","二","三","四","五","六"];
+        xq = "星期"+xqarr[xq];
+        let hh = d.getHours();
+        hh = hh>9? hh:"0"+hh;
+        let mm = d.getMinutes();
+        mm = mm>9? mm:"0"+mm;
+        let ss = d.getSeconds();
+        ss = ss>9? ss:"0"+ss;
+        let time = `${hh}:${mm}:${ss}`;
+        divxq.html(xq);
+        divday.html(day);
+        $("#clock").html(time);
+    }
+    setInterval(tm,1000);
+
+</script>
+</html>
