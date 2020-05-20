@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+</head>
+<style>
+    body{
+        background: black;
+    }
+    img{
+        position: absolute;
+    }
+</style>
+<body>
+<img id="myplayer" src="../image/tab/player_left.gif"/>
+</body>
+<script>
+    //179000513张念
+    let x = 0;
+   $(document).click(function (e) {
+        $("#myplayer").stop();
+        $("#myplayer").finish();
+        console.log(e.pageX+" "+e.pageY);
+        console.log("position().left:"+$("#myplayer").position().left+"    x:"+x);
+        if (x<e.pageX){
+            $("#myplayer").attr("src","../image/tab/player_right.gif");
+            $("#myplayer").on("dblclick",function () {
+                $(this).attr("src","../image/tab/playerbig_left.gif");
+            });
+        }else {
+            $("#myplayer").attr("src","../image/tab/player_left.gif");
+            $("#myplayer").on("dblclick",function () {
+                $(this).attr("src","../image/tab/playerbig_right.gif");
+            });
+        }
+
+        $("#myplayer").animate(
+            {
+                left:e.pageX-134,
+                top:e.pageY-138
+            },
+            3000
+        );
+       x = $("#myplayer").position().left+134;
+   })
+</script>
+</html>
