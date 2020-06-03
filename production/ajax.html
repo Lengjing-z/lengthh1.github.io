@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer"/>
+    <title>ajax应用</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/tabdemo.css">
+</head>
+<body>
+<div class="tabox">
+    <div class="hd">
+        <ul>
+            <li class="on">最近热门电影</li>
+            <li class=" ">即将上映电影</li>
+            <li class=" ">电影详情</li>
+            <li class=" ">热评商品</li>
+            <li class=" ">新品上架</li>
+        </ul>
+    </div>
+    <div class="container" id="bd">
+        <ul class="row row-cols-3">
+
+        </ul>
+    </div>
+</div>
+
+</body>
+<script>
+    $(function() {
+        //179000513张念
+        $("li").click(function(){
+            $(this).addClass("on").siblings().removeClass("on");
+        });
+        $.ajax({
+            method:"get",
+            url:"https://douban.uieee.com/v2/movie/in_theaters",
+            success:function(date) {
+                for(let i in date.subjects){
+                    $("#bd ul").append("<li><img style='height: 400px' src='"+date.subjects[i].images.large+"'/><br />"+"<p style='color: #00a0e9; text-align: center'>电影名："+date.subjects[i].title+"</p>"+"</li>");
+                }
+
+            }
+        })
+    })
+</script>
+</html>
